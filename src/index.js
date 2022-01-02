@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Title, Signature} from './title.js';
 import './index.css';
+import winGif from './media/fireworks.gif';
+import tieJPG from './media/tie.jpg';
 
 function ResetObj(props) {
   return (
@@ -121,16 +123,25 @@ render() {
   });
   
   let status;
+  let tie = this.state.stepNumber > 8;
+
   if(winner) {
     status = 'Winner: ' + winner;
+  } else if(tie) {
+    status = 'It\'s a TIE!';  
   } else {
     status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+    console.log(this.state.stepNumber);
   }
 
   return (
     <div className="game-page">
       <div className="game-header">
         <Title/>
+        <img className="game-finish" 
+              src={winner ? winGif : 
+                      tie ? tieJPG : null} 
+              alt={""}/>
       </div>
       <div className="game">
         <div className="game-board">

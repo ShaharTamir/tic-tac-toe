@@ -1,5 +1,5 @@
 body {
-    font: 14px "Century Gothic", Futura, sans-serif;
+    font: 16px "Century Gothic", Futura, sans-serif;
     margin: 20px;
     background-color: #2a3044;
     color: #ffffff;
@@ -26,12 +26,12 @@ body {
     font-size: 24px;
     font-weight: bold;
     line-height: 34px;
-    height: 34px;
+    height: 40px;
     margin-right: -1px;
     margin-top: -1px;
     padding: 0;
     text-align: center;
-    width: 34px;
+    width: 40px;
     color: #8aeeb7; 
   }
   
@@ -60,4 +60,15 @@ body {
     display: flex;
     left: 10%;
     bottom: 10%;
+  }
+
+  .game-finish {
+    position: fixed;
+    display: flex;
+    text-align: center;
+    object-fit: fill;
+    left: 0%;
+    bottom: 0%;
+    height: 150%;
+    width: 100%;
   }
