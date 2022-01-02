@@ -13,7 +13,8 @@ function ResetObj(props) {
 
 function Square(props) {
     return (
-        <button className="square" onClick={props.onClick}> 
+        <button className="square" onClick={props.onClick}
+         style={{color: props.value === 'X' ? '#8aeeb7' : '#ee8a8a'}}> 
           {props.value}
         </button>
     );
@@ -66,7 +67,7 @@ class Game extends React.Component {
 }
 
 handleRestartClick() {
-  this.setState(()=> ({
+  this.setState(() => ({
     history: [{
       squares: Array(9).fill(null),
     }],
