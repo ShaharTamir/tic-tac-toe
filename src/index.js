@@ -1,7 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Title from './title.js'
+import {Title, Signature} from './title.js';
 import './index.css';
+
+function ResetObj(props) {
+  return (
+    <button className="reset" onClick={props.onClick}>
+      {'reset'}
+    </button>
+  )
+}
 
 function Square(props) {
     return (
@@ -57,7 +65,17 @@ class Game extends React.Component {
     };
 }
 
-handleClick(i) {
+handleRestartClick() {
+  this.setState(()=> ({
+    history: [{
+      squares: Array(9).fill(null),
+    }],
+    stepNumber: 0,
+    xIsNext: true,
+  }));
+}
+
+handleSquareClick(i) {
   const history = this.state.history.slice(0, this.state.stepNumber + 1);
   const current = history[history.length - 1];
   const squares = current.squares.slice();
@@ -110,19 +128,25 @@ render() {
 
   return (
     <div className="game-page">
-      <div className="game-title">
+      <div className="game-header">
         <Title/>
       </div>
       <div className="game">
         <div className="game-board">
           <Board 
             squares={current.squares}
-            onClick={(i) => this.handleClick(i)}
+            onClick={(i) => this.handleSquareClick(i)}
           />
         </div>
         <div className="game-info">
           <div>{status}</div>
           <ol>{moves}</ol>
+        </div>
+        <div className="game-footer">
+          <ResetObj
+            onClick={() => this.handleRestartClick()}
+          />
+          <Signature/>
         </div>
       </div>
     </div>

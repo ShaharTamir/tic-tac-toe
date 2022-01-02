@@ -10,4 +10,12 @@ function Title() {
     )
 }
 
-export default Title
+function Signature() {
+    return (
+        <div className='signature'>
+            <div>by Shahar Tamir</div>
+        </div>
+    )
+}
+
+export {Title, Signature}

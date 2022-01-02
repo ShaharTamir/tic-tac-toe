@@ -1,7 +1,7 @@
 body {
     font: 14px "Century Gothic", Futura, sans-serif;
     margin: 20px;
-    background-color: #343e66;
+    background-color: #2a3044;
     color: #ffffff;
   }
   
@@ -53,4 +53,11 @@ body {
   
   .game-info {
     margin-left: 20px;
+  }
+
+  .game-footer {
+    position: fixed;
+    display: flex;
+    left: 10%;
+    bottom: 10%;
   }
