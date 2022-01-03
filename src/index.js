@@ -124,13 +124,17 @@ render() {
   
   let status;
   let tie = this.state.stepNumber > 8;
+  var finImg;
 
   if(winner) {
     status = 'Winner: ' + winner;
+    finImg = winGif;
   } else if(tie) {
     status = 'It\'s a TIE!';  
+    finImg = tieJPG;
   } else {
     status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+    finImg = null;
     console.log(this.state.stepNumber);
   }
 
@@ -139,8 +143,7 @@ render() {
       <div className="game-header">
         <Title/>
         <img className="game-finish" 
-              src={winner ? winGif : 
-                      tie ? tieJPG : null} 
+              src={finImg} 
               alt={""}/>
       </div>
       <div className="game">
